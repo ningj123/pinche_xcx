@@ -16,10 +16,14 @@ function formatNumber(n) {
 }  
 
   
-var rootDocment = 'https://xcx.codems.cn/api/';
+// var rootDocment = 'https://xcx.codems.cn/api/';
+var rootDocment = 'https://pinche.su021.com/';
   
 //修改成你的appid及appsecret
-var AppConf = { 'appid': 'wx61f7708fbb157848', 'appsecret':'57556a858121fae443f59863f9cb1cdb'};
+//var AppConf = { 'appid': 'wx61f7708fbb157848', 'appsecret':'57556a858121fae443f59863f9cb1cdb'};
+// var AppConf = { 'appid': 'wx7eb2a0842d91e0ae', 'appsecret':'bf366d7185db90658a347b1cae3a7420'}; 我的
+var AppConf = { 'appid': 'wx0d73f0154c723f03', 'appsecret': 'c4bff484e8a9902fdbfe06258b6a4f52' };
+
 
 function req(url, data, cb) {
   data.appid = AppConf.appid;

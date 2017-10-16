@@ -91,7 +91,7 @@ Page({
     data.departure = that.data.data.departure;
     data.destination = that.data.data.destination;
     data.id = that.data.data.id;
-    util.req('info/add',data,function(data){
+    util.req('index.php?s=api/info/add',data,function(data){
       if(data.status == 1){
         wx.redirectTo({
           url: '/pages/info/index?id='+data.info
@@ -125,7 +125,7 @@ Page({
   },
   onLoad:function(options){
     var that = this;
-    util.req('info/index',{id:options.id},function(data){
+    util.req('index.php?s=api/info/index',{id:options.id},function(data){
       var time = util.formatTime(new Date(data.data.time*1000)).split(' ')[1];
       data.data.time = time;
       that.setData({data:data.data});

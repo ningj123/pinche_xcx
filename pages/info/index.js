@@ -24,7 +24,7 @@ Page({
   zan:function(event){
     var that = this;
     var Commentdata = this.data.comment;
-    util.req('comment/zan',{
+    util.req('index.php?s=api/comment/zan',{
       'cid':Commentdata[event.currentTarget.id].id,
       'sk':app.globalData.sk
       },function(data){
@@ -46,7 +46,7 @@ Page({
   },
   shoucang:function(){
     var that = this;
-    util.req('fav/addfav',{iid:that.data.data.id,sk:app.globalData.sk},function(data){
+    util.req('index.php?s=api/fav/addfav',{iid:that.data.data.id,sk:app.globalData.sk},function(data){
       if(data.status == 1){
         that.setData({'shoucang':true});
         wx.showToast({
@@ -59,7 +59,7 @@ Page({
   },
   qxshoucang:function(){
     var that = this;
-    util.req('fav/delfav',{iid:that.data.data.id,sk:app.globalData.sk},function(data){
+    util.req('index.php?s=api/fav/delfav',{iid:that.data.data.id,sk:app.globalData.sk},function(data){
       if(data.status == 1){
         that.setData({'shoucang':false});
         wx.showToast({
@@ -97,7 +97,7 @@ Page({
         return false;
     }
     util.clearError(that);
-    util.req('appointment/add',{form_id:fId,iid:this.data.data.id,name:e.detail.value.name,phone:e.detail.value.phone,surplus:e.detail.value.surplus,sk:app.globalData.sk},function(data){
+    util.req('index.php?s=api/appointment/add',{form_id:fId,iid:this.data.data.id,name:e.detail.value.name,phone:e.detail.value.phone,surplus:e.detail.value.surplus,sk:app.globalData.sk},function(data){
       if(data.status == 1){
         that.setData({modalFlag:false});
         wx.showToast({
@@ -128,13 +128,13 @@ Page({
       'userInfo.phone':app.globalData.userInfo.phone
     })
 
-    util.req('fav/isfav',{iid:options.id,sk:app.globalData.sk},function(data){
+    util.req('index.php?s=api/fav/isfav',{iid:options.id,sk:app.globalData.sk},function(data){
       if(data.status == 1){
         that.setData({'shoucang':true});
       }
     }) 
 
-    util.req('info/index',{id:options.id},function(data){
+    util.req('index.php?s=api/info/index',{id:options.id},function(data){
       that.setData({data:data.data});
       if(data.data.uid == app.globalData.userInfo.id){
         var notme = false;
@@ -170,7 +170,7 @@ Page({
   },
   getComment:function(id){
     var that = this;
-    util.req('comment/get',{id:id,type:'info',page:page},function(data){
+    util.req('index.php?s=api/comment/get',{id:id,type:'info',page:page},function(data){
       if(data.status == 1){
         if(page == 1){          
           comment = new Array();
@@ -210,7 +210,7 @@ Page({
   },
   getCount:function(id){  
     var that = this;  
-    util.req('comment/get_count',{id:id,type:'info'},function(data){  //获取评论总数
+    util.req('index.php?s=api/comment/get_count',{id:id,type:'info'},function(data){  //获取评论总数
       if(data.status == 1){
         that.setData({comnum:data.data});
       }

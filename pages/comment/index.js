@@ -16,7 +16,7 @@ Page({
               // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
               res.tempFilePaths.forEach(function(item){
                 wx.uploadFile({
-                  url: 'https://xcx.codems.cn/api/upload', 
+                  url: 'https://pinche.su021.com/index.php?s=api/upload', 
                   filePath: item,
                   name: 'file',
                   formData:{
@@ -63,7 +63,7 @@ Page({
       util.isError('请输入内容或者至少选择一张图片', that);
       return false;
     }
-    util.req('comment/add',{
+    util.req('index.php?s=api/comment/add',{
       'iid':that.data.data.id,
       'reply':(that.data.data.reply == '楼主')?'':that.data.data.reply,
       'type':'info',

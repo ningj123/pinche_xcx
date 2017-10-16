@@ -11,7 +11,7 @@ App({
             key: 'sk',
             success: function(res) {
                 var sk = res.data;
-                util.req('user/vaild_sk', { "sk": sk }, function (data) {
+                util.req('index.php?s=api/user/vaild_sk', { "sk": sk }, function (data) {
                   if (data.status == 1) {
                     that.globalData.sk = sk;
                   } else {
@@ -50,7 +50,7 @@ App({
       success: function (res) {
         wx.getUserInfo({
           success: function(userinfo){
-            util.req('user/login', {
+            util.req('index.php?s=api/user/login', {
               "code": res.code,
               "encryptedData": userinfo.encryptedData,
               "iv": userinfo.iv

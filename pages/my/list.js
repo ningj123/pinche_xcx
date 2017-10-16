@@ -15,7 +15,7 @@ Page({
       content: '确定删除?',
       success: function(res) {
         if (res.confirm) {
-          util.req('info/del',{sk:app.globalData.sk,id:list[currentTarget].id},function(data){
+          util.req('index.php?s=api/info/del',{sk:app.globalData.sk,id:list[currentTarget].id},function(data){
             if(data.status == 1){
               list.splice(currentTarget,1);
               that.setData({list:list});
@@ -52,7 +52,7 @@ Page({
   },
   getList(){
     var that = this;
-    util.req('info/mylist',{sk:app.globalData.sk,page:page},function(data){
+    util.req('index.php?s=api/info/mylist',{sk:app.globalData.sk,page:page},function(data){
       if(data.data == null){
           if(page == 1){  
             console.log(page)        ;

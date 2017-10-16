@@ -37,7 +37,7 @@ Page({
   },
   getPassenger: function () {
     var that = this;
-    util.req('appointment/getPassenger',{sk:app.globalData.sk},function(data){
+    util.req('index.php?s=api/appointment/getPassenger',{sk:app.globalData.sk},function(data){
       if(data.status == 1){
         var list = data.data;
         var arr = new Array();
@@ -63,7 +63,7 @@ Page({
   },
   getMy: function () {
     var that = this;
-    util.req('appointment/my', { sk: app.globalData.sk }, function (data) {
+    util.req('index.php?s=api/appointment/my', { sk: app.globalData.sk }, function (data) {
       if (data.status == 1) {
         var list = data.data;
         that.setData({my:list});

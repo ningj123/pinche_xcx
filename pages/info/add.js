@@ -94,7 +94,7 @@ Page({
     data.sk = app.globalData.sk;
     data.departure = that.data.departure;
     data.destination = that.data.destination;
-    util.req('info/add',data,function(data){
+    util.req('index.php?s=api/info/add',data,function(data){
       if(data.status == 1){
         wx.redirectTo({
           url: '/pages/info/index?id='+data.info

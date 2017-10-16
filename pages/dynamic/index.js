@@ -21,7 +21,7 @@ Page({
   },
   getList:function(){
     var that = this;
-     util.req('dynamic/getlist',{page:page},function(data){
+    util.req('index.php?s=api/dynamic/getlist',{page:page},function(data){
         var list = data.list;
         if (page == 1) {
           var arr = new Array();
@@ -69,7 +69,7 @@ Page({
     if(content == ''){
       return false;
     }
-    util.req('comment/add',{
+    util.req('index.php?s=api/comment/add',{
       'iid':that.data.list[that.data.nowid].id,
       'reply':(that.data.reply).replace('回复',''),
       'type':'dynamic',

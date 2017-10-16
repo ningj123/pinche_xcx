@@ -45,7 +45,7 @@ Page({
   getList:function(date='',start='',over=''){
 
     var that = this;
-    util.req('info/lists',
+    util.req('index.php?s=api/info/lists',
       {start:start,over:over,date:date,page:page},
       function(data){
         if(!data.list){

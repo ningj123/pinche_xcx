@@ -5,7 +5,7 @@ Page({
   data:{},
   msg:function(){
     var that = this;
-    util.req('msg/getall', { sk: app.globalData.sk }, function (data) {
+    util.req('index.php?s=api/msg/getall', { sk: app.globalData.sk }, function (data) {
       var zan = 0;
       var comment = 0;
       var notice = 0;

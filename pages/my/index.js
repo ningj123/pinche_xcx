@@ -10,11 +10,11 @@ Page({
       userInfo:app.globalData.userInfo
     });
 
-    util.req('info/mycount',{sk:app.globalData.sk},function(data){
+    util.req('index.php?s=api/info/mycount',{sk:app.globalData.sk},function(data){
       that.setData({infoCount:data.data});
     })
 
-    util.req('appointment/mycount', { sk: app.globalData.sk }, function (data) {
+    util.req('index.php?s=api/appointment/mycount', { sk: app.globalData.sk }, function (data) {
       that.setData({ appointmentCount: data.data });
     })
 
